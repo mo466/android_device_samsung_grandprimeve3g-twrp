@@ -1,0 +1,3 @@
+add_lunch_combo grandprimeve3gxx-user
+add_lunch_combo grandprimeve3gxx-userdebug
+add_lunch_combo grandprimeve3gxx-eng
