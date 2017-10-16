@@ -6,7 +6,7 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp
 TARGET_BUILD_VARIANT=user
 
 # Architecture
-ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_NEON := true # Take advantage of arm-neon optimisation
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a7
@@ -19,13 +19,11 @@ TARGET_CPU_VARIANT := cortex-a7
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := grandprimeve3g
+TARGET_BOOTLOADER_BOARD_NAME := SC7730SE
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/samsung/grandprimeve3g/kernel
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
-BOARD_KERNEL_BASE := 00000000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --dt device/samsung/grandprimeve3g/dt.img --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_CONFIG := cyanogen_grandprimeve3g_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/sprd
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -63,17 +61,19 @@ TW_THEME := portrait_mdpi
 TWHAVE_SELINUX := true
 TW_HAVE_X86_ACCELERATED_PIXELFLINGER := false
 TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_NO_SCREEN_BLANK := true # не удаляй дурачёк если у тебя sc8830
+TW_NO_SCREEN_BLANK := true # Only use this flag when you have sc8830
+TW_NO_SCREEN_TIMEOUT := true
 TW_NO_CPU_TEMP := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_MTP_DEVICE := /dev/usb_mtp_gadget
-TW_INCLUDE_FB2PNG := true
+TW_INCLUDE_FB2PNG := true # A better way to take screenshot
 TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true # Lol we hate this prompt anyway
+TW_NEVER_UNMOUNT_SYSTEM := true
 TW_INCLUDE_L_CRYPTO := true
 TW_HAS_DOWNLOAD_MODE := true
 PLATFORM_SDK_VERSION := 22
 TW_EXTRA_LANGUAGES := true
-TW_DEFAULT_LANGUAGE := ru
-TW_USE_TOOLBOX := false
+TW_DEFAULT_LANGUAGE := en-US # Sorry clarc, but English is the international language
+TW_USE_TOOLBOX := true # Cuz why not
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/20200000.usb/gadget/lun%d/file"
-
