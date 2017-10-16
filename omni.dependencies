@@ -1,7 +1,3 @@
 [
-  {
-    "repository": "android_device_samsung_grandprimeve3g",
-    "target_path": "kernel/samdung/grandprimeve3g",
-    "branch": "5.1"
-  }
+
 ]
