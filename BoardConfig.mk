@@ -19,7 +19,6 @@ TARGET_CPU_VARIANT := cortex-a7
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := grandprimeve3g
-TARGET_BOOTLOADER_BOARD_NAME := SC7730SE
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogen_grandprimeve3g_defconfig
